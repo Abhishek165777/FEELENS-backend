@@ -1,0 +1,63 @@
+{
+  "info": {
+    "name": "FeeLens AI API Testing",
+    "_postman_id": "d5d2c8c8-22f4-4e89-94b3-f1f0b5c8e7a1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Home",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/"
+      }
+    },
+    {
+      "name": "Health check",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/health"
+      }
+    },
+    {
+      "name": "Detect charges from CSV",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "sample_bank_statement.csv"
+            }
+          ]
+        },
+        "url": "{{base_url}}/api/v1/charges/detect"
+      }
+    },
+    {
+      "name": "Invalid file type (expected 400)",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": "sample_bank_statement.csv"
+            }
+          ]
+        },
+        "url": "{{base_url}}/api/v1/charges/detect"
+      }
+    }
+  ]
+}

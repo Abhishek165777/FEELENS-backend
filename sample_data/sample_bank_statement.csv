@@ -1,0 +1,5 @@
+Date,Description,Amount,Type
+2026-10-01,Salary Credit,25000,Credit
+2026-10-02,ATM Withdrawal,500,Debit
+2026-10-03,SMS Charge,50,Debit
+2026-10-04,Debit Card Annual Fee,150,Debit
